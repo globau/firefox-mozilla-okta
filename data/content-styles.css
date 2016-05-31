@@ -1,0 +1,4 @@
+.button:focus,
+.button:hover  {
+  border-color: #888888 !important;
+}
