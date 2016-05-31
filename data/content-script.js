@@ -29,3 +29,8 @@ if (document.querySelector('#extra-verification-challenge')) {
     }
 
 }
+
+// automatically check remeber device
+for (let input of document.querySelectorAll('[id^=duo-remember-checkbox]')) {
+    input.checked = true;
+}
