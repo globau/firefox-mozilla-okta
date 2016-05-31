@@ -18,13 +18,17 @@ self.port.on('init', function(prefs) {
         return;
     }
 
-    // fix overly long devices
-    for (let option of document.querySelectorAll('#factor_selector option')) {
-        option.textContent = option.textContent.replace(/ \S+DuoPushPhone\S+ /, ' Phone ');
+    if (document.querySelector('#factor_selector')) {
+        // fix overly long devices
+        for (let option of document.querySelectorAll('#factor_selector option')) {
+            option.textContent = option.textContent.replace(/ \S+DuoPushPhone\S+ /, ' Phone ');
+        }
+
+        // focus the currently visible code field after factor selected
+        document.querySelector('#factor_selector').addEventListener('change', focus_code_field);
     }
 
     // focus the currently visible code field
-    document.querySelector('#factor_selector').addEventListener('change', focus_code_field);
     focus_code_field();
 
     // pressing enter in the code field should submit
@@ -39,3 +43,4 @@ self.port.on('init', function(prefs) {
         }
     }
 });
+
