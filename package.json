@@ -1,6 +1,6 @@
 {
   "author": "glob", 
-  "description": "Tweak Mozilla's SSO login\n\n- fixes overly long devices names\n- auto-focus verification code field\n- make enter with the verification code field focused submit the form", 
+  "description": "", 
   "engines": {
     "firefox": ">=38.0a1"
   }, 

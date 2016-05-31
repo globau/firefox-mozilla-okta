@@ -1,0 +1,6 @@
+Tweak Mozilla's SSO login
+
+- fixes overly long devices names
+- auto-focus verification code field
+- make enter with the verification code field focused submit the form
+- improve visibility of focused buttons
