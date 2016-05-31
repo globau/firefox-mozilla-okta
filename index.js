@@ -7,5 +7,8 @@ pageMod.PageMod({
     contentScriptWhen: 'end',
     onError: function(e) {
         console.error(e.value);
+    },
+    onAttach: function(worker) {
+        worker.port.emit('init', require('sdk/simple-prefs').prefs);
     }
 });

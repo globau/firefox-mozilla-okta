@@ -13,7 +13,11 @@ function on_code_keypressed(event) {
     }
 }
 
-if (document.querySelector('#extra-verification-challenge')) {
+self.port.on('init', function(prefs) {
+    if (!document.querySelector('#extra-verification-challenge')) {
+        return;
+    }
+
     // fix overly long devices
     for (let option of document.querySelectorAll('#factor_selector option')) {
         option.textContent = option.textContent.replace(/ \S+DuoPushPhone\S+ /, ' Phone ');
@@ -28,4 +32,10 @@ if (document.querySelector('#extra-verification-challenge')) {
         input.addEventListener('keypress', on_code_keypressed);
     }
 
-}
+    // check 'remember device' if required
+    if (prefs.rememberDevice) {
+        for (let input of document.querySelectorAll('[id^=duo-remember-checkbox]')) {
+            input.checked = true;
+        }
+    }
+});
