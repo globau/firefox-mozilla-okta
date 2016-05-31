@@ -10,15 +10,15 @@
   "permissions": {
     "private-browsing": true
   }, 
-  "preferences": [ 
-    { 
+  "preferences": [
+    {
+      "description": "Defers the requirement to re-verify your login with your device.", 
       "name": "rememberDevice", 
       "title": "Automatically check 'Remember device'", 
-      "description": "Defers the requirement to re-verify your login with your device.", 
       "type": "bool", 
-      "value": false 
+      "value": false
     }
-  ],
+  ], 
   "title": "MoCo SSO Tweaks", 
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

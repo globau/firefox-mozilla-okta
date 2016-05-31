@@ -1,4 +1,6 @@
 sign
 run
+package
+DESCRIPTION
 .*
 *.xpi
