@@ -2,6 +2,7 @@ function focus_code_field() {
     for (let input of document.querySelectorAll('[id^=duo-verify-code-]')) {
         if (input.offsetParent) {
             input.focus();
+            input.select();
             break;
         }
     }
@@ -31,6 +32,10 @@ self.port.on('init', function(prefs) {
     for (let input of document.querySelectorAll('[id^=duo-verify-code-]')) {
         input.addEventListener('keypress', on_code_keypressed);
     }
+
+    // put focus back on code field on submit in case of code error
+    document.querySelector('#verify_factor').addEventListener('click', focus_code_field);
+
 
     // check 'remember device' if required
     if (prefs.rememberDevice) {
