@@ -1,0 +1,29 @@
+{
+    "bitwise": true,
+    "curly": true,
+    "eqeqeq": true,
+    "latedef": "nofunc",
+    "moz": true,
+    "nocomma": true,
+    "nonbsp": true,
+    "singleGroups": true,
+    "undef": true,
+    "unused": "vars",
+    "varstmt": true,
+    "globals": {
+        "APP_SHUTDOWN": false,
+        "Components": false,
+        "PlacesUtils": false,
+        "Services": false,
+        "XPCOMUtils": false,
+        "console": false,
+        "document": false,
+        "exportFunction": false,
+        "exports": false,
+        "require": false,
+        "self": false,
+        "unsafeWindow": false,
+        "window": false,
+        "MutationObserver": false
+    }
+}

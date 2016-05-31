@@ -1,0 +1,15 @@
+{
+  "author": "glob", 
+  "description": "Tweak Mozilla's SSO login\n\n- fixes overly long devices names\n- auto-focus verification code field\n- make enter with the verification code field focused submit the form", 
+  "engines": {
+    "firefox": ">=38.0a1"
+  }, 
+  "license": "MIT", 
+  "main": "index.js", 
+  "name": "moco-sso-tweaks", 
+  "permissions": {
+    "private-browsing": true
+  }, 
+  "title": "MoCo SSO Tweaks", 
+  "version": "0.0.1"
+}
