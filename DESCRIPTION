@@ -5,3 +5,4 @@ Tweak Mozilla's SSO login
 - make enter with the verification code field focused submit the form
 - improve visibility of focused buttons
 - optionally automatically check 'remember device'
+- fix overly long button titles on sso menu page

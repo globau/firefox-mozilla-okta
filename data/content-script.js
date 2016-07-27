@@ -14,11 +14,7 @@ function on_code_keypressed(event) {
     }
 }
 
-self.port.on('init', function(prefs) {
-    if (!document.querySelector('#extra-verification-challenge')) {
-        return;
-    }
-
+function fix_verification_challenge(prefs) {
     if (document.querySelector('#factor_selector')) {
         // fix overly long devices
         for (let option of document.querySelectorAll('#factor_selector option')) {
@@ -47,5 +43,28 @@ self.port.on('init', function(prefs) {
             input.checked = true;
         }
     }
-});
+}
 
+function fix_app_buttons_list() {
+    // the menu is loaded via xhr, wait for the buttons to load
+    let observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            if (mutation.target.classList.contains('logo')) {
+                for (let title of document.querySelectorAll('.app-button-name')) {
+                    // remove the common 'Google Apps (mozilla.com)' prefix from button titles
+                    title.textContent = title.textContent.replace(/^Google Apps \([^\)]+\)\s+/, '');
+                }
+            }
+        });
+    });
+    // listen for attribute change only; childList events will trigger recursion as we're changing the DOM
+    observer.observe(document.querySelector('html'), { attributes: true, subtree: true });
+}
+
+self.port.on('init', function(prefs) {
+    if (document.querySelector('#extra-verification-challenge')) {
+        fix_verification_challenge(prefs);
+    } else if (document.location.href === 'https://mozilla.okta.com/app/UserHome') {
+        fix_app_buttons_list();
+    }
+});
